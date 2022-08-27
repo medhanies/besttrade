@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Best Trade - Investors</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    </head>
+    <body>
+        <div>
+            <a href="/ui/home">Home</a>
+        </div>
+        <div>
+            <h1>Welcome to the Investors Page</h1>
+            <p>The total number of Investors = {{ data['investor_count'] }}</p>
+            <p>Out of which {{ data['active_investor_count'] }} are active investors</p>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Address</th>
+                </tr>
+                {% for investor in data['investors']%}
+                    <tr>
+                        <td>{{ investor.id }}</td>
+                        <td>{{ investor.name }}</td>
+                        <td>{{ investor.address }}</td>
+                        <td>{{ investor.status }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>
